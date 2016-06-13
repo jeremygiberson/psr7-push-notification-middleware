@@ -1,0 +1,16 @@
+{
+    "name": "jeremygiberson/psr7-push-notification-middleware",
+    "description": "PSR7 Middleware for handling push notifications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Giberson",
+            "email": "jeremygiberson@gmail.com"
+        }
+    ],
+    "require": {
+        "psr/http-message": "^1.0",
+        "symfony/event-dispatcher": "^3.1"
+    }
+}
