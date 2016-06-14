@@ -8,7 +8,6 @@ use JeremyGiberson\Psr7\PushNotificationMiddleware\Events\NotificationEvent;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatcherInterface;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResults\MatchResult;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\Middlewares\AbstractMiddleware;
-use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
@@ -60,7 +59,7 @@ class AbstractMiddlewareTest extends \PHPUnit_Framework_TestCase
         $request = self::createMock(RequestInterface::class);
         /** @var ResponseInterface|\PHPUnit_Framework_MockObject_MockObject $response */
         $response = self::createMock(ResponseInterface::class);
-        
+
         $response->expects(self::any())
             ->method('withStatus')
             ->with(200, self::anything())
