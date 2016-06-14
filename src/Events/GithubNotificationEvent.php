@@ -17,52 +17,34 @@ class GithubNotificationEvent extends NotificationEvent
         parent::__construct(self::EVENT_NAME, []);
     }
 
-    /**
-     * @return mixed
-     */
     public function getGithubEventName()
     {
-        return $this->githubEventName;
+        return $this->getParam('event_name');
     }
 
-    /**
-     * @param mixed $githubEventName
-     */
-    public function setGithubEventName($githubEventName)
+    public function withGithubEventName($githubEventName)
     {
-        $this->githubEventName = $githubEventName;
+        return $this->withParam('event_name', $githubEventName);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getGithubSignature()
+    public function getSignature()
     {
-        return $this->githubSignature;
+        return $this->getParam('signature');
     }
 
-    /**
-     * @param mixed $githubSignature
-     */
-    public function setGithubSignature($githubSignature)
+    public function withSignature($signature)
     {
-        $this->githubSignature = $githubSignature;
+        return $this->withParam('signature', $signature);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getGithubDeliveryId()
+    public function getDeliveryId()
     {
-        return $this->githubDeliveryId;
+        return $this->getParam('delivery_id');
     }
 
-    /**
-     * @param mixed $githubDeliveryId
-     */
-    public function setGithubDeliveryId($githubDeliveryId)
+    public function withDeliveryId($deliveryId)
     {
-        $this->githubDeliveryId = $githubDeliveryId;
+        return $this->withParam('delivery_id', $deliveryId);
     }
 
 }

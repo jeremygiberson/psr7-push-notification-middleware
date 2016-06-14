@@ -8,10 +8,12 @@ use Symfony\Component\EventDispatcher\Event;
 
 class NotificationEvent extends Event
 {
+    use ImmutableParams {
+        __construct as parent__construct;
+    }
+
     /** @var  string */
     private $name;
-    /** @var  array */
-    private $params;
 
     /**
      * NotificationEvent constructor.
@@ -21,7 +23,7 @@ class NotificationEvent extends Event
     public function __construct($name, array $params = [])
     {
         $this->name = $name;
-        $this->params = $params;
+        $this->parent__construct($params);
     }
 
     /**
@@ -32,42 +34,6 @@ class NotificationEvent extends Event
         return $this->name;
     }
 
-    /**
-     * @return array
-     */
-    public function getParams()
-    {
-        return $this->params;
-    }
-
-    /**
-     * @param array $params
-     */
-    public function setParams(array $params = [])
-    {
-        $this->params = $params;
-    }
-
-
-    /**
-     * @param string $name
-     * @param mixed $default
-     * @return mixed|null
-     */
-    public function getParam($name, $default = null)
-    {
-        return isset($this->params[$name]) ? $this->params[$name] : $default;
-    }
-
-    public function __set($name, $value)
-    {
-        $this->params[$name] = $value;
-    }
-
-    public function __get($name)
-    {
-        return isset($this->params[$name]) ? $this->params[$name] : null;
-    }
 
 
 }

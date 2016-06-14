@@ -20,5 +20,10 @@
       "psr-4": {
         "JeremyGiberson\\Psr7\\PushNotificationMiddleware\\": "src/"
       }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "Unit\\": "tests/unit/"
+      }
     }
 }

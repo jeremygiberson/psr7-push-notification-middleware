@@ -7,6 +7,7 @@ namespace JeremyGiberson\Psr7\PushNotificationMiddleware\Matchers;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatcherInterface;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResultInterface;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResults\MatchResult;
+use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResults\UnmatchedResult;
 use Psr\Http\Message\RequestInterface;
 
 class Chain implements MatcherInterface
@@ -18,7 +19,7 @@ class Chain implements MatcherInterface
      * Chain constructor.
      * @param MatcherInterface[] $matchers
      */
-    public function __construct(array $matchers)
+    public function __construct(array $matchers = [])
     {
         foreach($matchers as $matcher) {
             $this->add($matcher);
@@ -48,6 +49,6 @@ class Chain implements MatcherInterface
             }
         }
 
-        return new MatchREsult(false);
+        return new UnmatchedResult();
     }
 }

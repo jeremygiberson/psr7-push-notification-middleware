@@ -1,6 +1,5 @@
 <?php
 
-
 namespace JeremyGiberson\Psr7\PushNotificationMiddleware\Matchers;
 
 
@@ -30,11 +29,11 @@ class Github implements MatcherInterface
     {
         $notification = json_decode((string)$request->getBody(), true);
 
-        $event = new GithubNotificationEvent();
-        $event->setGithubEventName($request->getHeaderLine('X-GitHub-Event'));
-        $event->setGithubDeliveryId($request->getHeaderLine('X-GitHub-Delivery'));
-        $event->setGithubSignature($request->getHeaderLine('X-Hub-Signature'));
-        $event->setParams($notification);
+        $event = (new GithubNotificationEvent())
+            ->withParams($notification)
+            ->withGithubEventName($request->getHeaderLine('X-GitHub-Event'))
+            ->withDeliveryId($request->getHeaderLine('X-Github-Delivery'))
+            ->withSignature($request->getHeaderLine('X-Hub-Signature'));
 
         return $event;
     }
