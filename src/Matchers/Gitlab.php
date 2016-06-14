@@ -30,10 +30,10 @@ class Gitlab implements MatcherInterface
     {
         $notification = json_decode((string)$request->getBody(), true);
 
-        $event = new GitlabNotificationEvent();
-        $event->setGitlabEventName($request->getHeaderLine('X-Gitlab-Event'));
-        $event->setObjectKind($notification['object_kind']);
-        $event->setParams($notification);
+        $event = (new GitlabNotificationEvent())
+            ->withParams($notification)
+            ->withGitlabEventName($request->getHeaderLine('X-Gitlab-Event'))
+            ->withObjectKind($notification['object_kind']);
 
         return $event;
     }
