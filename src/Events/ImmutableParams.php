@@ -34,7 +34,7 @@ trait ImmutableParams
 
     /**
      * @param array $params
-     * @return self new instance with params replaced
+     * @return $this new instance with params replaced
      */
     public function withParams(array $params = [])
     {
@@ -46,7 +46,7 @@ trait ImmutableParams
     /**
      * @param $name
      * @param $value
-     * @return self new instance with additional parameter
+     * @return $this new instance with additional parameter
      */
     public function withParam($name, $value)
     {

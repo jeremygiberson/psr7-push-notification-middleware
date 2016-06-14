@@ -14,7 +14,7 @@ class AwsSnsNotificationEvent extends NotificationEvent
 
     public function getTopicArn()
     {
-        return $this->getParam('topic_arm');
+        return $this->getParam('topic_arn');
     }
 
     public function withTopicArn($topicArn)

@@ -35,17 +35,17 @@ class AwsSns implements MatcherInterface
     {
         $notification = json_decode((string)$request->getBody(), true);
 
-        $event = new AwsSnsNotificationEvent();
-        $event->setType($notification['Type']);
-        $event->setTopicArn($notification['TopicArn']);
-        $event->setTimestamp($notification['Timestamp']);
-        $event->setSubject($notification['Subject']);
-        $event->setMessageId($notification['MessageId']);
-        $event->setMessage($notification['Message']);
-        $event->setSignature($notification['Signature']);
-        $event->setSignatureVersion($notification['SignatureVersion']);
-        $event->setSigningCertURL($notification['SigningCertURL']);
-        $event->setUnsubscribeURL($notification['UnsubscribeURL']);
+        $event = (new AwsSnsNotificationEvent())
+            ->withType($notification['Type'])
+            ->withTopicArn($notification['TopicArn'])
+            ->withTimestamp($notification['Timestamp'])
+            ->withSubject($notification['Subject'])
+            ->withMessageId($notification['MessageId'])
+            ->withMessage($notification['Message'])
+            ->withSignature($notification['Signature'])
+            ->withSignatureVersion($notification['SignatureVersion'])
+            ->withSigningCertURL($notification['SigningCertURL'])
+            ->withUnsubscribeURL($notification['UnsubscribeURL']);
 
         return $event;
     }
