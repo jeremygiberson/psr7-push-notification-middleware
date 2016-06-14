@@ -41,6 +41,15 @@ class NotificationEvent extends Event
     }
 
     /**
+     * @param array $params
+     */
+    public function setParams(array $params = [])
+    {
+        $this->params = $params;
+    }
+
+
+    /**
      * @param string $name
      * @param mixed $default
      * @return mixed|null
@@ -49,5 +58,16 @@ class NotificationEvent extends Event
     {
         return isset($this->params[$name]) ? $this->params[$name] : $default;
     }
+
+    public function __set($name, $value)
+    {
+        $this->params[$name] = $value;
+    }
+
+    public function __get($name)
+    {
+        return isset($this->params[$name]) ? $this->params[$name] : null;
+    }
+
 
 }
