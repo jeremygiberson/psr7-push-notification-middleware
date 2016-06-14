@@ -3,7 +3,6 @@
 
 namespace JeremyGiberson\Psr7\PushNotificationMiddleware\Middlewares;
 
-
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatcherInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -15,6 +14,18 @@ class AbstractMiddleware
     private $matcher;
     /** @var  EventDispatcher */
     private $dispatcher;
+
+    /**
+     * AbstractMiddleware constructor.
+     * @param MatcherInterface $matcher
+     * @param EventDispatcher $dispatcher
+     */
+    public function __construct(MatcherInterface $matcher, EventDispatcher $dispatcher)
+    {
+        $this->matcher = $matcher;
+        $this->dispatcher = $dispatcher;
+    }
+
 
     public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next = null)
     {

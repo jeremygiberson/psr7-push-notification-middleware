@@ -4,11 +4,11 @@
 namespace JeremyGiberson\Psr7\PushNotificationMiddleware\Matchers;
 
 
+use JeremyGiberson\Psr7\PushNotificationMiddleware\Events\GithubNotificationEvent;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatcherInterface;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResultInterface;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResults\MatchResult;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResults\UnmatchedResult;
-use JeremyGiberson\Psr7\PushNotificationMiddleware\Middlewares\Events\GithubNotificationEvent;
 use Psr\Http\Message\RequestInterface;
 
 class Github implements MatcherInterface

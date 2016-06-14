@@ -4,8 +4,8 @@
 namespace JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResults;
 
 
+use JeremyGiberson\Psr7\PushNotificationMiddleware\Events\NotificationEvent;
 use JeremyGiberson\Psr7\PushNotificationMiddleware\MatchResultInterface;
-use JeremyGiberson\Psr7\PushNotificationMiddleware\Middlewares\Events\NotificationEvent;
 
 class MatchResult implements MatchResultInterface
 {

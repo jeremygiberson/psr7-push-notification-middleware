@@ -1,7 +1,7 @@
 <?php
 
 
-namespace JeremyGiberson\Psr7\PushNotificationMiddleware\Middlewares\Events;
+namespace JeremyGiberson\Psr7\PushNotificationMiddleware\Events;
 
 
 use Symfony\Component\EventDispatcher\Event;
