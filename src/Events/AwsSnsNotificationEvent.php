@@ -1,6 +1,5 @@
 <?php
 
-
 namespace JeremyGiberson\Psr7\PushNotificationMiddleware\Events;
 
 
@@ -13,163 +12,103 @@ class AwsSnsNotificationEvent extends NotificationEvent
         parent::__construct(self::EVENT_NAME, []);
     }
 
-    /**
-     * @return mixed
-     */
     public function getTopicArn()
     {
-        return $this->topicArn;
+        return $this->getParam('topic_arm');
     }
 
-    /**
-     * @param mixed $topicArn
-     */
-    public function setTopicArn($topicArn)
+    public function withTopicArn($topicArn)
     {
-        $this->topicArn = $topicArn;
+        return $this->withParam('topic_arn', $topicArn);
     }
 
-    /**
-     * @return mixed
-     */
     public function getTimestamp()
     {
-        return $this->timestamp;
+        return $this->getParam('timestamp');
     }
 
-    /**
-     * @param mixed $timestamp
-     */
-    public function setTimestamp($timestamp)
+    public function withTimestamp($timestamp)
     {
-        $this->timestamp = $timestamp;
+        return $this->withParam('timestamp', $timestamp);
     }
 
-    /**
-     * @return mixed
-     */
     public function getType()
     {
-        return $this->type;
+        return $this->getParam('type');
     }
 
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
+    public function withType($type)
     {
-        $this->type = $type;
+        return $this->withParam('type', $type);
     }
 
-    /**
-     * @return mixed
-     */
     public function getSubject()
     {
-        return $this->subject;
+        return $this->getParam('subject');
     }
 
-    /**
-     * @param mixed $subject
-     */
-    public function setSubject($subject)
+    public function withSubject($subject)
     {
-        $this->subject = $subject;
+        return $this->withParam('subject', $subject);
     }
 
-    /**
-     * @return mixed
-     */
     public function getMessageId()
     {
-        return $this->messageId;
+        return $this->getParam('message_id');
     }
 
-    /**
-     * @param mixed $messageId
-     */
-    public function setMessageId($messageId)
+    public function withMessageId($messageId)
     {
-        $this->messageId = $messageId;
+        return $this->withParam('message_id', $messageId);
     }
 
-    /**
-     * @return mixed
-     */
     public function getMessage()
     {
-        return $this->message;
+        return $this->getParam('message');
     }
 
-    /**
-     * @param mixed $message
-     */
-    public function setMessage($message)
+    public function withMessage($message)
     {
-        $this->message = $message;
+        return $this->withParam('message',$message);
     }
 
-    /**
-     * @return mixed
-     */
     public function getSignatureVersion()
     {
-        return $this->signatureVersion;
+        return $this->getParam('signature_version');
     }
 
-    /**
-     * @param mixed $signatureVersion
-     */
-    public function setSignatureVersion($signatureVersion)
+    public function withSignatureVersion($signatureVersion)
     {
-        $this->signatureVersion = $signatureVersion;
+        return $this->withParam('signature_version', $signatureVersion);
     }
 
-    /**
-     * @return mixed
-     */
     public function getSignature()
     {
-        return $this->signature;
+        return $this->getParam('signature');
     }
 
-    /**
-     * @param mixed $signature
-     */
-    public function setSignature($signature)
+    public function withSignature($signature)
     {
-        $this->signature = $signature;
+        return $this->withParam('signature', $signature);
     }
 
-    /**
-     * @return mixed
-     */
     public function getSigningCertURL()
     {
-        return $this->signingCertURL;
+        return $this->getParam('signing_cert_url');
     }
 
-    /**
-     * @param mixed $signingCertURL
-     */
-    public function setSigningCertURL($signingCertURL)
+    public function withSigningCertURL($signingCertURL)
     {
-        $this->signingCertURL = $signingCertURL;
+        return $this->withParam('signing_cert_url', $signingCertURL);
     }
 
-    /**
-     * @return mixed
-     */
     public function getUnsubscribeURL()
     {
-        return $this->unsubscribeURL;
+        return $this->getParam('unsubscribe_url');
     }
 
-    /**
-     * @param mixed $unsubscribeURL
-     */
-    public function setUnsubscribeURL($unsubscribeURL)
+    public function withUnsubscribeURL($unsubscribeURL)
     {
-        $this->unsubscribeURL = $unsubscribeURL;
+        return $this->withParam('unsubscribe_url', $unsubscribeURL);
     }
 }

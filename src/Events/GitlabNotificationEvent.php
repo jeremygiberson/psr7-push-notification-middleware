@@ -17,38 +17,24 @@ class GitlabNotificationEvent extends NotificationEvent
         parent::__construct(self::EVENT_NAME, []);
     }
 
-    /**
-     * @return mixed
-     */
     public function getGitlabEventName()
     {
-        return $this->gitlabEventName;
+        return $this->getParam('event_name');
     }
 
-    /**
-     * @param mixed $gitlabEventName
-     */
-    public function setGitlabEventName($gitlabEventName)
+    public function withGitlabEventName($gitlabEventName)
     {
-        $this->gitlabEventName = $gitlabEventName;
+        return $this->withParam('event_name', $gitlabEventName);
     }
 
-    /**
-     * @return mixed
-     */
     public function getObjectKind()
     {
-        return $this->objectKind;
+        return $this->getParam('object_kind');
     }
 
-    /**
-     * @param mixed $objectKind
-     */
-    public function setObjectKind($objectKind)
+    public function withObjectKind($objectKind)
     {
-        $this->objectKind = $objectKind;
+        return $this->withParam('object_kind', $objectKind);
     }
-
-
 
 }
